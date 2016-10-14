@@ -3,14 +3,15 @@
 exports.home = {
 
   handler: (request, reply) => {
-    reply.file('./app/views/main.html');
+    reply.view('main', { title: 'Welcome to Twitters' });
   },
+
 };
 
-  exports.signup = {
+exports.signup = {
 
   handler: (request, reply) => {
-    reply.file('./app/views/signup.html');
+    reply.view('signup', { title: 'Sign up for Twitters' });
   },
 
 };
@@ -18,7 +19,7 @@ exports.home = {
 exports.login = {
 
   handler: (request, reply) => {
-    reply.file('./app/views/login.html');
+    reply.view('login', { title: 'Login to Twitters' });
   },
 
 };
