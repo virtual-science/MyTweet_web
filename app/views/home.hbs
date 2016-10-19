@@ -1,0 +1,22 @@
+<nav class="ui inverted teal menu">
+    <header class="header item"><a href="/"> Welcome </a></header>
+    <div class="right menu">
+        <a class="active item" href="/home"> Twitter</a>
+        <a class="item" href="/report"> List of Tweets</a>
+        <a class="item" href="/logout"> Logout</a>
+    </div>
+</nav>
+
+
+
+    {{> tweet }}
+
+
+<section class="ui raised segment">
+    <div class="ui  divider"></div>
+
+    <div class="ui teal progress" data-percent="${progress}" id="mainprogress">
+        <div class="bar"></div>
+    </div>
+
+</section>
