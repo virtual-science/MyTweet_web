@@ -23,8 +23,11 @@ server.register([require('inert'), require('vision'), require('hapi-auth-cookie'
     isCached: false,
   });
   server.bind({
+    currentUser: {},
+    users: {},
     tweets: [],
   });
+  
   server.route(require('./routes'));
 
   server.start((err) => {

@@ -16,13 +16,12 @@ exports.report = {
 };
 
 
-
-
 exports.tweet = {
 
   handler: function (request, reply) {
     const data = request.payload;
-    console.log(data);
+    //console.log(data);
+    data.tweet = this.currentUser;
     this.tweets.push(data);
     reply.redirect('/report');
   },
