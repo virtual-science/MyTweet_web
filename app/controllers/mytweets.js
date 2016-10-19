@@ -1,5 +1,6 @@
 'use strict';
 
+
 exports.home = {
   handler: function (request, reply) {
     reply.view('home', { title: 'Make a Tweet' });
@@ -19,9 +20,9 @@ exports.report = {
 exports.tweet = {
 
   handler: function (request, reply) {
-    const data = request.payload;
+    let data = request.payload;
     //console.log(data);
-    data.tweetr = this.currentUser;
+    data.tweets = this.currentUser;
     this.tweets.push(data);
     reply.redirect('/report');
   },
