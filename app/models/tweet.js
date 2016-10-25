@@ -1,9 +1,9 @@
 const mongoose = require('mongoose');
 
 const tweetSchema = mongoose.Schema({
-  amount: Number,
-  method: String,
+  message: String,
+  twitter: String,
 });
 
-const tweet = mongoose.model('Tweet', donationSchema);
-module.exports = mytweets;
+const tweet = mongoose.model('Tweet', tweetSchema);
+module.exports = tweet;

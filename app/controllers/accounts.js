@@ -72,7 +72,7 @@ exports.viewSettings = {
 
   handler: function (request, reply) {
     var userEmail = request.auth.credentials.loggedInUser;
-    var currentUserDetails = this.users[userEmail];
+    var currentUserDetails = this .user[userEmail];
     reply.view('settings', { title: 'Edit Account Settings', user: currentUserDetails });
   },
 
