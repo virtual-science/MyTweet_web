@@ -41,7 +41,7 @@ exports.register = {
     options: {
       abortEarly: false,
     },
-    
+
     failAction: function (request, reply, source, error) {
       reply.view('signup', {
         title: 'Sign up error',
@@ -64,7 +64,29 @@ exports.register = {
 };
 
 exports.authenticate = {
+
   auth: false,
+
+  validate: {
+
+    payload: {
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+
+    options: {
+      abortEarly: false,
+    },
+
+    failAction: function (request, reply, source, error) {
+      reply.view('login', {
+        title: 'Sign in error',
+        errors: error.data.details,
+      }).code(400);
+    },
+
+  },
+
   handler: function (request, reply) {
     const user = request.payload;
     User.findOne({ email: user.email }).then(foundUser => {
@@ -83,8 +105,6 @@ exports.authenticate = {
   },
 
 };
-
-
 
 exports.logout = {
   auth: false,
@@ -109,6 +129,28 @@ exports.viewSettings = {
 
 exports.updateSettings = {
 
+  validate: {
+
+    payload: {
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+
+    options: {
+      abortEarly: false,
+    },
+
+    failAction: function (request, reply, source, error) {
+      reply.view('signup', {
+        title: 'Sign up error',
+        errors: error.data.details,
+      }).code(400);
+    },
+
+  },
+
   handler: function (request, reply) {
     const editedUser = request.payload;
     const loggedInUserEmail = request.auth.credentials.loggedInUser;
@@ -127,3 +169,4 @@ exports.updateSettings = {
   },
 
 };
+
