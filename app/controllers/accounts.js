@@ -1,5 +1,6 @@
 'use strict';
 const User = require('../models/user');
+const Joi = require('joi');
 
 exports.main = {
 auth:false,
@@ -27,8 +28,31 @@ exports.login = {
 
 exports.register = {
   auth: false,
+
+  validate: {
+
+    payload: {
+      firstName: Joi.string().required(),
+      lastName: Joi.string().required(),
+      email: Joi.string().email().required(),
+      password: Joi.string().required(),
+    },
+
+    options: {
+      abortEarly: false,
+    },
+    
+    failAction: function (request, reply, source, error) {
+      reply.view('signup', {
+        title: 'Sign up error',
+        errors: error.data.details,
+      }).code(400);
+    },
+
+  },
+
   handler: function (request, reply) {
-    const user = new User (request.payload);
+    const user = new User(request.payload);
 
     user.save().then(newUser => {
       reply.redirect('/login');
@@ -59,6 +83,8 @@ exports.authenticate = {
   },
 
 };
+
+
 
 exports.logout = {
   auth: false,
