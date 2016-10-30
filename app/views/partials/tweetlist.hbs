@@ -9,9 +9,8 @@
     <thead>
     <tr>
         <th>Message/Tweet</th>
-        <th>Sender Name</th>
-        <th>Email</th>
-
+        <th>Sender Email </th>
+        <th>Message receiver</th>
 
     </tr>
     </thead>
@@ -20,9 +19,9 @@
 {{#each tweets}}
     <tr>
         <td> {{message}} </td>
-        <td> {{twitter}} </td>
-        <td> {{tweeple.firstName}} {{tweeple.lastName}}</td>
 
+        <td> {{tweeple.firstName}} {{tweeple.lastName}}</td>
+        <td> {{friend.lastName}}, {{friend.firstName}} </td>
     </tr>
 {{/each}}
 

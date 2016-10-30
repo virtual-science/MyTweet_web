@@ -1,0 +1,60 @@
+
+   {
+  "users": {
+  "_model": "User",
+  "homer": {
+  "firstName": "Homer",
+  "lastName": "Simpson",
+  "email": "homer@simpson.com",
+  "password": "secret"
+  },
+  "marge": {
+  "firstName": "Marge",
+  "lastName": "Simpson",
+  "email": "marge@simpson.com",
+  "password": "secret"
+  },
+  "bart": {
+  "firstName": "Bart",
+  "lastName": "Simpson",
+  "email": "bart@simpson.com",
+  "password": "secret"
+  }
+  },
+
+     "friends": {
+       "_model": "Friend",
+       "lisa": {
+         "firstName": "Lisa",
+         "lastName": "Simpson",
+         "office": "President"
+       },
+       "donald": {
+         "firstName": "Donald",
+         "lastName": "Simpson",
+         "office": "President"
+       }
+     },
+
+  "tweets": {
+  "_model": "tweet",
+  "one": {
+  "message": "Hey would you like to join me on dinner tonight",
+  "sender": "->twitter",
+  "tweeple": "->users.bart",
+    "friend": "->friends.bart"
+  },
+  "two": {
+    "message": "Hey how are doing",
+    "sender": "->twitter",
+    "tweeple": "->users.marge",
+  "friend": "->friends.marge"
+  },
+  "three": {
+    "message": "Hey have you joined WIT",
+    "sender": "->twitter",
+   "tweeple": "->users.homer",
+    "friend": "->friends.donald"
+  }
+  }
+  }
