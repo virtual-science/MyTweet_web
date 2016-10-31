@@ -1,0 +1,28 @@
+<section class="ui raised segment">
+    <div class="ui grid">
+        <aside class="six wide column">
+            <img src="images/tweet2.jpg" class="ui small image">
+        </aside>
+        <article class="eight wide column">
+            <table class="ui celled table segment">
+                <thead>
+                <tr>
+                    <th>Message/Tweet</th>
+                    <th>Message receiver</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                {{#each tweets}}
+                    <tr>
+                        <td> {{message}} </td>
+                        <td> {{friend.lastName}}, {{friend.firstName}} </td>
+                    </tr>
+                {{/each}}
+
+                </tbody>
+            </table>
+        </article>
+    </div>
+</section>

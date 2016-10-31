@@ -27,8 +27,7 @@ exports.tweet = {
       let data = request.payload;
       userId = user._id;
       twit = new Tweet(data);
-      // data.twitter = request.auth.credentials.loggedInUser;
-      //  const twit = new Tweet(data);
+      data.twitter = request.auth.credentials.loggedInUser;
       const rawFriend = request.payload.friend.split(',');
       return Friend.findOne({ lastName: rawFriend[0], firstName: rawFriend[1] });
     }).then(friend => {
@@ -36,6 +35,7 @@ exports.tweet = {
       twit.friend = friend._id;
       return twit.save();
     }).then(newtweet => {
+
       reply.redirect('/report');
     }).catch(err => {
       reply.redirect('/');
@@ -47,6 +47,19 @@ exports.report = {
   handler: function (request, reply) {
     Tweet.find({}).populate('tweeple').populate('friend').then(allTweets=> {
       reply.view('report', {
+        title: 'MyTweet to Date',
+        tweets: allTweets,
+      });
+    }).catch(err => {
+      reply.redirect('/');
+    });
+  },
+};
+
+exports.timeline_report = {
+  handler: function (request, reply) {
+    Tweet.find({}).populate('tweeple').populate('friend').then(allTweets=> {
+      reply.view('timeline_report', {
         title: 'MyTweet to Date',
         tweets: allTweets,
       });
