@@ -56,12 +56,18 @@ exports.report = {
   },
 };
 
+
+
 exports.timeline_report = {
   handler: function (request, reply) {
     Tweet.find({}).populate('tweeple').populate('friend').then(allTweets=> {
       reply.view('timeline_report', {
         title: 'MyTweet to Date',
         tweets: allTweets,
+
+         handler: function (request, reply) {
+          var x = document.getElementById({message})
+          x.remove(x.message)}
       });
     }).catch(err => {
       reply.redirect('/');
@@ -71,7 +77,6 @@ exports.timeline_report = {
 
 
 exports.home = {
-
 handler: function (request, reply) {
 Friend.find({}).then(friends => {
 reply.view('home', {
@@ -83,3 +88,4 @@ reply.redirect('/');
 });
 },
 };
+

@@ -1,4 +1,4 @@
-<section class="ui raised segment">
+<section class="ui raised segment" xmlns="http://www.w3.org/1999/html">
     <div class="ui grid">
         <aside class="six wide column">
             <img src="images/tweet2.jpg" class="ui small image">
@@ -6,17 +6,19 @@
         <article class="eight wide column">
             <table class="ui celled table segment">
                 <thead>
+
                 <tr>
                     <th>Message/Tweet</th>
                     <th>Message receiver</th>
-
                 </tr>
                 </thead>
 
-                <tbody>
+               <tbody>
+                <select id="message">
                 {{#each tweets}}
                     <tr>
                         <td> {{message}} </td>
+                    </select>
                         <td> {{friend.lastName}}, {{friend.firstName}} </td>
                     </tr>
                 {{/each}}
@@ -25,4 +27,10 @@
             </table>
         </article>
     </div>
-</section>
+    <button onclick="timeline_report()"> remove selected message</button>
+   </section>
+
+
+
+
+

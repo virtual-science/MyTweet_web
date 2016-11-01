@@ -8,9 +8,9 @@
 <table class="ui celled table segment">
     <thead>
     <tr>
+        <th>Sender  </th>
+        <th> receiver</th>
         <th>Message/Tweet</th>
-        <th>Sender Email </th>
-        <th>Message receiver</th>
 
     </tr>
     </thead>
@@ -18,9 +18,10 @@
     <tbody>
 {{#each tweets}}
     <tr>
-        <td> {{message}} </td>
+
         <td> {{tweeple.firstName}} {{tweeple.lastName}}</td>
-        <td> {{friend.lastName}}, {{friend.firstName}} </td>
+              <td> {{friend.lastName}}, {{friend.firstName}} </td>
+             <td> {{message}} </td>
     </tr>
 {{/each}}
 
