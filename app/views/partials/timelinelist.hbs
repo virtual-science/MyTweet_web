@@ -14,12 +14,26 @@
                 </thead>
 
                <tbody>
-                <select id="message">
+               <form action="/timeline_report" method="POST">
+                <!--  <select id="del">-->
                 {{#each tweets}}
                     <tr>
-                        <td> {{message}} </td>
-                    </select>
-                        <td> {{friend.lastName}}, {{friend.firstName}} </td>
+
+                      <td>
+
+                    <div class="grouped inline fields">
+
+                            <div class="field">
+                                <div class="ui radio checkbox">
+                                    <input type="radio" name="del" value="{{message}}">
+                                    <label>{{message}}</label>
+                                </div>
+                                </div>
+                            </div>
+
+                      </td>
+
+                   td> {{friend.lastName}}, {{friend.firstName}} </td>
                     </tr>
                 {{/each}}
 
@@ -27,10 +41,11 @@
             </table>
         </article>
     </div>
-    <button onclick="timeline_report()"> remove selected message</button>
+
+    <button class="ui orange submit button" > Delete selected message</button>
    </section>
 
 
-
+<!--<button class="ui orange submit button" onclick=timeline_report()> Delete selected message</button>-->
 
 

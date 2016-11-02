@@ -66,8 +66,10 @@ exports.timeline_report = {
         tweets: allTweets,
 
          handler: function (request, reply) {
-          var x = document.getElementById({message})
-          x.remove(x.message)}
+          var x = message.getElementById({del})
+          x.remove(),
+          display(message)}
+
       });
     }).catch(err => {
       reply.redirect('/');

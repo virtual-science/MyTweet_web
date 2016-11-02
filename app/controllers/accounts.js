@@ -157,65 +157,18 @@ exports.updateSettings = {
     const editedUser = request.payload;
     const loggedInUserEmail = request.auth.credentials.loggedInUser;
 
-    User.findOne({ email: loggedInUserEmail }).then(user => {
-      user.firstName = editedUser.firstName;
-      user.lastName = editedUser.lastName;
-      user.email = editedUser.email;
-      user.password = editedUser.password;
-      return user.save();
-    }).then(user => {
-      reply.view('settings', { title: 'Edit Account Settings', user: user });
-    }).catch(err => {
-      reply.redirect('/');
-    });
-  },
+User.findOne({ email: loggedInUserEmail }).then(user => {
+  user.firstName = editedUser.firstName;
+  user.lastName = editedUser.lastName;
+  user.email = editedUser.email;
+  user.password = editedUser.password;
+  return user.save();
+}).then(user => {
+  reply.view('settings', { title: 'Edit Account Settings', user: user });
+}).catch(err => {
+  reply.redirect('/');
+});
+},
 
 };
 
-exports.adminlogin = {
-  auth: false,
-  handler: function (request, reply) {
-    reply.view('adminlogin', { title: 'Login to Admin Page' });
-  },
-
-};
-
-
-exports.authentication = {
-  auth: false,
-  validate: {
-   payload: {
-      email: Joi.string().email().required(),
-      password: Joi.string().required(),
-    },
-
-    options: {
-      abortEarly: false,
-    },
-
-    failAction: function (request, reply, source, error) {
-      reply.view('login', {
-        title: 'Sign in error',
-        errors: error.data.details,
-      }).code(400);
-    },
-  },
-
-  handler: function (request, reply) {
-    const admin = request.payload;
-    Admin.findOne({ email: admin.email }).then(foundUser => {
-      if (foundAdmin && foundAdmin.password === admin.password) {
-        request.cookieAuth.set({
-          loggedIn: true,
-          loggedInAdmin: admin.email,
-        });
-        reply.redirect('/home');
-      } else {
-        reply.redirect('/signup');
-      }
-    }).catch(err => {
-      reply.redirect('/');
-    });
-  },
-
-};

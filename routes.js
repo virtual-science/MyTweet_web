@@ -1,7 +1,7 @@
 const Accounts = require('./app/controllers/accounts');
 const MyTweet = require('./app/controllers/mytweets');
 const Assets = require('./app/controllers/assets');
-
+const Administrator = require('./app/controllers/administrator');
 
 module.exports = [
 
@@ -14,17 +14,15 @@ module.exports = [
   { method: 'GET', path: '/settings', config: Accounts.viewSettings },
   { method: 'POST', path: '/settings', config: Accounts.updateSettings },
 
-  { method: 'GET', path: '/adminlogin', config: Accounts.adminlogin },
-  { method: 'POST', path: '/adminlogin', config: Accounts.authentication },
-
-
+  { method: 'GET', path: '/adminlogin', config: Administrator.adminlogin },
+  { method: 'POST', path: '/adminlogin', config: Administrator.authentication },
 
   { method: 'GET', path: '/home', config: MyTweet.home },
   { method: 'GET', path: '/report', config: MyTweet.report },
   { method: 'POST', path: '/tweet', config: MyTweet.tweet },
   { method: 'GET', path: '/timeline_report', config: MyTweet.timeline_report },
-
-
+  { method: 'POST', path: '/timeline_report', config: MyTweet.timeline_report },
+ 
   {
     method: 'GET',
     path: '/{param*}',
