@@ -1,39 +1,23 @@
-<section class="ui raised segment" xmlns="http://www.w3.org/1999/html">
+<section class="ui raised segment">
     <div class="ui grid">
         <aside class="six wide column">
-            <img src="images/tweet2.jpg" class="ui small image">
+            <img src="images/tweet5.jpg" class="ui small image">
         </aside>
         <article class="eight wide column">
+
             <table class="ui celled table segment">
                 <thead>
-
                 <tr>
-                    <th>Message/Tweet</th>
-                    <th>Message receiver</th>
+                    <th>Message/Tweets</th>
+                    <th>Sender  </th>
                 </tr>
                 </thead>
 
-               <tbody>
-               <form action="/timeline_report" method="POST">
-                <!--  <select id="del">-->
+                <tbody>
                 {{#each tweets}}
                     <tr>
-
-                      <td>
-
-                    <div class="grouped inline fields">
-
-                            <div class="field">
-                                <div class="ui radio checkbox">
-                                    <input type="radio" name="del" value="{{message}}">
-                                    <label>{{message}}</label>
-                                </div>
-                                </div>
-                            </div>
-
-                      </td>
-
-                   td> {{friend.lastName}}, {{friend.firstName}} </td>
+                        <td> {{message}} </td>
+                        <td> {{user.firstName}} {{user.lastName}}</td>
                     </tr>
                 {{/each}}
 
@@ -41,11 +25,4 @@
             </table>
         </article>
     </div>
-
-    <button class="ui orange submit button" > Delete selected message</button>
-   </section>
-
-
-<!--<button class="ui orange submit button" onclick=timeline_report()> Delete selected message</button>-->
-
-
+</section>

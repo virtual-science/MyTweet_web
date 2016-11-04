@@ -1,32 +1,45 @@
-<section class="ui raised segment">
-<div class="ui grid">
-    <aside class="six wide column">
-        <img src="images/tweet5.jpg" class="ui small image">
+<section class="ui raised segment" xmlns="http://www.w3.org/1999/html" xmlns="http://www.w3.org/1999/html">
+    <div class="ui grid">
+        <aside class="six wide column">
+            <img src="images/tweet2.jpg" class="ui small image">
+        </aside>
+        <h2> User Time Line Page</h2>
+        <article class="ten wide column">
+            <table class="ui celled table segment">
+                <thead>
+                <tr>
+                    <th>Message/Tweet</th>
+
+                </tr>
+                </thead>
+
+                <tbody>
+                <form action="/timeline_delete" method="POST">
+
+                    {{#each tweets}}
+                        <tr>
+                            <td>     <div class="grouped inline fields">
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="checkbox" name="del" value="{{_id}}">
+                                        <label>{{message}}</label>
+                                    </div>
+                                </div>
+                            </div>
+                            </td>
+
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        </article>
+    </div>
+
+    </article>
+    </div>
+    <button class="ui orange submit button" > Delete selected message</button>
     </aside>
-<article class="eight wide column">
-
-<table class="ui celled table segment">
-    <thead>
-    <tr>
-        <th>Sender  </th>
-        <th> receiver</th>
-        <th>Message/Tweet</th>
-
-    </tr>
-    </thead>
-
-    <tbody>
-{{#each tweets}}
-    <tr>
-
-        <td> {{tweeple.firstName}} {{tweeple.lastName}}</td>
-              <td> {{friend.lastName}}, {{friend.firstName}} </td>
-             <td> {{message}} </td>
-    </tr>
-{{/each}}
-
-</tbody>
-</table>
-</article>
-</div>
 </section>
+
+
+

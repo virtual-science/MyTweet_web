@@ -7,17 +7,6 @@
           <textarea name="message" maxlength="140" rows="10" cols="30">
       </textarea>
 
-                    <div class="grouped inline fields">
-                        <h3> Select Friend </h3>
-                        {{#each friends }}
-                            <div class="field">
-                                <div class="ui radio checkbox">
-                                    <input type="radio" name="friend" value="{{lastName}},{{firstName}}">
-                                    <label>{{lastName}}, {{firstName}}</label>
-                                </div>
-                            </div>
-                        {{/each}}
-                    </div>
 
                     <button class="ui blue submit button">Tweet</button>
                 </form>

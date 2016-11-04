@@ -5,7 +5,7 @@ const Joi = require('joi');
 
 
 exports.main = {
-auth:false,
+  auth:false,
   handler: function (request, reply) {
     reply.view('main', { title: 'Welcome to MyTweet' });
   },
@@ -157,18 +157,18 @@ exports.updateSettings = {
     const editedUser = request.payload;
     const loggedInUserEmail = request.auth.credentials.loggedInUser;
 
-User.findOne({ email: loggedInUserEmail }).then(user => {
-  user.firstName = editedUser.firstName;
-  user.lastName = editedUser.lastName;
-  user.email = editedUser.email;
-  user.password = editedUser.password;
-  return user.save();
-}).then(user => {
-  reply.view('settings', { title: 'Edit Account Settings', user: user });
-}).catch(err => {
-  reply.redirect('/');
-});
-},
+    User.findOne({ email: loggedInUserEmail }).then(user => {
+      user.firstName = editedUser.firstName;
+      user.lastName = editedUser.lastName;
+      user.email = editedUser.email;
+      user.password = editedUser.password;
+      return user.save();
+    }).then(user => {
+      reply.view('settings', { title: 'Edit Account Settings', user: user });
+    }).catch(err => {
+      reply.redirect('/');
+    });
+  },
 
 };
 

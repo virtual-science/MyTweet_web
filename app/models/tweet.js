@@ -3,7 +3,8 @@ const mongoose = require('mongoose');
 const tweetSchema = mongoose.Schema({
   message: String,
   email: String,
-  tweeple: {
+
+  user: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
@@ -11,6 +12,12 @@ const tweetSchema = mongoose.Schema({
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Friend',
   },
+
+  tweet:  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Tweet',
+  },
+
 });
 
 

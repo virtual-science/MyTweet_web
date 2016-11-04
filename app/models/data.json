@@ -45,20 +45,20 @@
     "_model": "tweet",
     "one": {
       "message": "Hey would you like to join me on dinner tonight",
-      "sender": "->tweeple",
-      "tweeple": "->users.bart",
+      "sender": "->user",
+      "user": "->users.bart",
       "friend": "->friends.bart"
     },
     "two": {
       "message": "Hey how are doing",
-      "sender": "->tweeple",
-      "tweeple": "->users.marge",
+      "sender": "->user",
+      "user": "->users.marge",
       "friend": "->friends.marge"
     },
     "three": {
       "message": "Hey have you joined WIT",
-      "sender": "->tweeple",
-      "tweeple": "->users.homer",
+      "sender": "->user",
+      "user": "->users.homer",
       "friend": "->friends.donald"
     }
   }

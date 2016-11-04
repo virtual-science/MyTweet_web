@@ -18,11 +18,13 @@ module.exports = [
   { method: 'POST', path: '/adminlogin', config: Administrator.authentication },
 
   { method: 'GET', path: '/home', config: MyTweet.home },
-  { method: 'GET', path: '/report', config: MyTweet.report },
+  { method: 'GET', path: '/mytweetTimeline', config: MyTweet.mytweetTimeline },
   { method: 'POST', path: '/tweet', config: MyTweet.tweet },
+
   { method: 'GET', path: '/timeline_report', config: MyTweet.timeline_report },
-  { method: 'POST', path: '/timeline_report', config: MyTweet.timeline_report },
- 
+
+  { method: 'POST', path: '/timeline_delete', config: MyTweet.timeline_delete },
+
   {
     method: 'GET',
     path: '/{param*}',
