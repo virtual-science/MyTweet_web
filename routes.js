@@ -1,7 +1,8 @@
 const Accounts = require('./app/controllers/accounts');
 const MyTweet = require('./app/controllers/mytweets');
 const Assets = require('./app/controllers/assets');
-const Administrator = require('./app/controllers/administrator');
+const Admin = require('./app/controllers/admin');
+
 
 module.exports = [
 
@@ -13,9 +14,9 @@ module.exports = [
   { method: 'POST', path: '/register', config: Accounts.register },
   { method: 'GET', path: '/settings', config: Accounts.viewSettings },
   { method: 'POST', path: '/settings', config: Accounts.updateSettings },
-
-  { method: 'GET', path: '/adminlogin', config: Administrator.adminlogin },
-  { method: 'POST', path: '/adminlogin', config: Administrator.authentication },
+    
+    
+  { method: 'GET', path: '/admin', config: Admin.admin },
 
   { method: 'GET', path: '/home', config: MyTweet.home },
   { method: 'GET', path: '/mytweetTimeline', config: MyTweet.mytweetTimeline },

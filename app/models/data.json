@@ -21,14 +21,6 @@
     }
   },
 
-  "admins": {
-    "_model": "Admin",
-    "admin": {
-      "email": "admin@twitter.com",
-      "password": "secret"
-    }
-  },
-
   "friends": {
     "_model": "Friend",
     "lisa": {

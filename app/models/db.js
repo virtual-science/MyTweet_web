@@ -18,7 +18,6 @@ mongoose.connection.on('connected', function () {
     const data = require('./data.json');
     const tweeter = require('./tweet');
     const User = require('./user');
-    const Admin = require('./admin');
     const Friend = require('./friend.js');
     seeder.seed(data, { dropDatabase: false, dropCollections: true }).then(dbData => {
       console.log('preloading Test Data');

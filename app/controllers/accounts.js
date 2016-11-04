@@ -1,6 +1,5 @@
 'use strict';
 const User = require('../models/user');
-const Admin = require('../models/admin');
 const Joi = require('joi');
 
 
@@ -91,19 +90,29 @@ exports.authenticate = {
 
   handler: function (request, reply) {
     const user = request.payload;
-    User.findOne({ email: user.email }).then(foundUser => {
-      if (foundUser && foundUser.password === user.password) {
-        request.cookieAuth.set({
-          loggedIn: true,
-          loggedInUser: user.email,
-        });
-        reply.redirect('/home');
-      } else {
-        reply.redirect('/signup');
-      }
-    }).catch(err => {
-      reply.redirect('/');
-    });
+    if (user.email === 'admin@twitter.com' && user.password === 'secret') {
+      request.cookieAuth.set({
+        loggedIn: true,
+        loggedInUser: user.email,
+      });
+      reply.redirect('/admin');
+    } else {
+
+      const user = request.payload;
+      User.findOne({email: user.email}).then(foundUser => {
+        if (foundUser && foundUser.password === user.password) {
+          request.cookieAuth.set({
+            loggedIn: true,
+            loggedInUser: user.email,
+          });
+          reply.redirect('/home');
+        } else {
+          reply.redirect('/signup');
+        }
+      }).catch(err => {
+        reply.redirect('/');
+      });
+    }
   },
 
 };
