@@ -22,6 +22,11 @@ const userSchema = mongoose.Schema({
     ref: 'Tweet',
   },
 
+  admin:  {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Admin',
+  },
+
 });
 
 const User = mongoose.model('User', userSchema);

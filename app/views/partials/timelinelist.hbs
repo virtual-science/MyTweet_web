@@ -8,6 +8,7 @@
             <table class="ui celled table segment">
                 <thead>
                 <tr>
+                    <th>Picture</th>
                     <th>Message/Tweets</th>
                     <th>Sender  </th>
                 </tr>
@@ -16,6 +17,8 @@
                 <tbody>
                 {{#each tweets}}
                     <tr>
+                        <td>  <img src="images/tweet5.jpg" class="ui small image"></td>
+                        <td> {{user.image }}</td>
                         <td> {{message}} </td>
                         <td> {{user.firstName}} {{user.lastName}}</td>
                     </tr>

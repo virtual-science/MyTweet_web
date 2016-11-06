@@ -54,7 +54,7 @@ exports.mytweetTimeline = {
         reply.redirect('/');
       });
     });
-  }
+  },
 };
 
 
@@ -78,10 +78,15 @@ exports.timeline_delete = {
 };
 
 
+
+
+
+
+
 exports.timeline_report = {
 
   handler: function (request, reply) {
-    Tweet.find({}).populate('user').then(allTweets=> {
+    Tweet.find({}).populate('user.image').then(allTweets=> {
       reply.view('timeline_report', {
         title: 'MyTweet to Date',
         tweets: allTweets,

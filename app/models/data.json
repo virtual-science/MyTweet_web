@@ -5,7 +5,8 @@
       "firstName": "Homer",
       "lastName": "Simpson",
       "email": "homer@simpson.com",
-      "password": "secret"
+      "password": "secret",
+      "image": "homer.gif"
     },
     "marge": {
       "firstName": "Marge",
@@ -17,6 +18,14 @@
       "firstName": "Bart",
       "lastName": "Simpson",
       "email": "bart@simpson.com",
+      "password": "secret"
+    }
+  },
+
+  "admins": {
+    "_model": "Admin",
+    "admin": {
+      "email": "admin@twitter.com",
       "password": "secret"
     }
   },
