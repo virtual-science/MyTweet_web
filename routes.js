@@ -16,7 +16,7 @@ module.exports = [
   { method: 'POST', path: '/settings', config: Accounts.updateSettings },
     
     
-  { method: 'GET', path: '/admin', config: Admin.admin },
+ // { method: 'GET', path: '/admin', config: Admin.admin },
 
   { method: 'GET', path: '/home', config: MyTweet.home },
   { method: 'GET', path: '/mytweetTimeline', config: MyTweet.mytweetTimeline },

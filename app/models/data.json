@@ -19,8 +19,15 @@
       "lastName": "Simpson",
       "email": "bart@simpson.com",
       "password": "secret"
+    },
+    "admin": {
+      "firstName": "admin",
+      "lastName": "Simpson",
+      "email": "admin@twitter.com",
+      "password": "secret"
     }
   },
+
 
   "admins": {
     "_model": "Admin",

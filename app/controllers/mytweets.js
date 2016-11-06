@@ -27,10 +27,10 @@ exports.tweet = {
       let data = request.payload;
       userId = user._id;
       twit = new Tweet(data);
-     // data.twitter = request.auth.credentials.loggedInUser;
+      // data.twitter = request.auth.credentials.loggedInUser;
       twit.user= userId;
       return twit.save();
-    //  return user_id.save();
+      //  return user_id.save();
     }).then(newtweet => {
       reply.redirect('/mytweetTimeline');
     }).catch(err => {
@@ -77,16 +77,10 @@ exports.timeline_delete = {
   }
 };
 
-
-
-
-
-
-
 exports.timeline_report = {
 
   handler: function (request, reply) {
-    Tweet.find({}).populate('user.image').then(allTweets=> {
+    Tweet.find({}).populate('user').then(allTweets=> {
       reply.view('timeline_report', {
         title: 'MyTweet to Date',
         tweets: allTweets,
@@ -109,4 +103,3 @@ exports.home = {
     });
   },
 };
-

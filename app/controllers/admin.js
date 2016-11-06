@@ -1,7 +1,7 @@
+/*
 'use strict';
 const User = require('../models/user');
 const Joi = require('joi');
-
 
 exports.admin = {
   auth:false,
@@ -12,7 +12,7 @@ exports.admin = {
         request.cookieAuth.set({
           loggedIn: true,
           loggedInUser: user.email,
-        });
+        });/!**!/
         reply.redirect('/admin');
       } else {
 
@@ -44,7 +44,7 @@ exports.admin = {
 
 
 
-/*  var userEmail = request.auth.credentials.loggedInUser;
+/!*  var userEmail = request.auth.credentials.loggedInUser;
   let userId = null;
   let twit = null;
   User.findOne({email: userEmail}).then(user => {
@@ -54,12 +54,13 @@ exports.admin = {
      data.twitter = request.auth.credentials.loggedInUser;
     twit.user= userId;
     return twit.save();
-     return user_id.save();*/
-    /*}).then(newtweet => {
+     return user_id.save();*!/
+    /!*}).then(newtweet => {
       reply.redirect('/mytweetTimeline');
     }).catch(err => {
       reply.redirect('/');
     });
   },
 };
+*!/
 */
