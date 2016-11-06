@@ -4,6 +4,7 @@
   "description": "an application to tweet to friends",
   "main": "index.js",
   "scripts": {
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
@@ -16,7 +17,8 @@
     "joi": "^9.2.0",
     "mongoose": "^4.6.4",
     "mongoose-seeder": "^1.2.1",
-    "vision": "^4.1.0"
+    "vision": "^4.1.0",
+    "node": "6.5.0"
   },
   "devDependencies": {},
   "repository": {
