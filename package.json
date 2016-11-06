@@ -1,10 +1,9 @@
-{
-  "name": "twitter-web",
+{  "name": "twitter-webdev",
   "version": "1.0.0",
   "description": "an application to tweet to friends",
   "main": "index.js",
   "scripts": {
-   "start": "node index",
+    "start": "node index",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
