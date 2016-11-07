@@ -16,8 +16,7 @@
     "joi": "^9.2.0",
     "mongoose": "^4.6.4",
     "mongoose-seeder": "^1.2.1",
-    "vision": "^4.1.0",
-    "node": "6.5.0"
+    "vision": "^4.1.0"
   },
   "devDependencies": {},
   "repository": {
