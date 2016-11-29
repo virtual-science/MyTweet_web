@@ -1,0 +1,20 @@
+{{> adminMenu _id="/"}} <!--uses partial, id = the active tab -->
+
+<section class="ui raised segment">
+    <div class="ui grid ">
+
+        <div class="ui five wide column">
+            {{> stats }} <!--uses partial -->
+
+
+            <aside class="ui five wide column">
+                <img src="images/male gossip.jpg" class="ui medium image">
+            </aside>
+        </div>
+
+        <div class="ui ten wide column">
+            {{> adminTweetlist }}
+        </div>
+
+    </div>
+</section>

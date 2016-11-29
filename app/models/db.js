@@ -2,10 +2,10 @@
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 
-
-
-let dbURI = 'mongodb://localhost/mytweet';
-//var dbURI = 'mongodb://mytweetuser:mytweetuser@ds145997.mlab.com:45997/mytwitter-web';
+// declare the connection string
+//let dbURI = 'mongodb://localhost/microblog_webent'; //to connect to the mongodB database
+//let dbURI = 'mongodb://localhost/mytweet';
+var dbURI = 'mongodb://mytweetuser:mytweetuser@ds145997.mlab.com:45997/mytwitter-web';
 if (process.env.NODE_ENV === 'production') {
   dbURI = process.env.MONGOLAB_URI;
 }

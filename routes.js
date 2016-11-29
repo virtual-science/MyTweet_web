@@ -26,6 +26,21 @@ module.exports = [
 
   { method: 'POST', path: '/timeline_delete', config: MyTweet.timeline_delete },
 
+
+/*/........................................*/
+  { method: 'GET', path: '/adminHome', config: Admin.home },
+  { method: 'GET', path: '/adminUsers', config: Admin.users },
+  { method: 'GET', path: '/userAdd', config: Admin.userAdd },
+  { method: 'GET', path: '/userEdit/{userId}', config: Admin.userEdit },
+  { method: 'POST', path: '/userSave/{userId}', config: Admin.userSave },
+  { method: 'GET', path: '/userDelete/{userId}', config: Admin.userDelete },
+  { method: 'POST', path: '/adminDeleteAllUsers', config: Admin.adminDeleteAllUsers },
+
+  { method: 'GET', path: '/adminDeleteTweet/{tweetId}', config: Admin.adminDeleteTweet },
+  { method: 'POST', path: '/adminDeleteAll', config: Admin.adminDeleteAll },
+  { method: 'POST', path: '/adminDeleteAllOtherUserTweets/{userId}', config: Admin.adminDeleteAllOtherUserTweets },
+
+
   {
     method: 'GET',
     path: '/{param*}',

@@ -17,6 +17,8 @@ exports.home = {
 
 };
 
+
+//-------------------- Tweet  ---------------------------------//
 exports.tweet = {
 
   handler: function (request, reply) {
@@ -39,6 +41,7 @@ exports.tweet = {
   },
 };
 
+//-------------------- myTweet-Line  ---------------------------------//
 exports.mytweetTimeline = {
   handler: function (request, reply) {
     var userEmail = request.auth.credentials.loggedInUser;
@@ -57,7 +60,7 @@ exports.mytweetTimeline = {
   },
 };
 
-
+//---------------------To delete tweet --------------------------------------------//
 exports.timeline_delete = {
   handler: function (request, reply) {
     let data = request.payload;
@@ -77,6 +80,7 @@ exports.timeline_delete = {
   }
 };
 
+//--------------------Globaltime-line Report --------------------------//
 exports.timeline_report = {
 
   handler: function (request, reply) {
@@ -91,15 +95,4 @@ exports.timeline_report = {
   },
 };
 
-exports.home = {
-  handler: function (request, reply) {
-    Friend.find({}).then(friends => {
-      reply.view('home', {
-        title: 'Make a Tweet',
-        friends: friends,
-      });
-    }).catch(err => {
-      reply.redirect('/');
-    });
-  },
-};
+

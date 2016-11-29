@@ -1,0 +1,53 @@
+{{> adminMenu _id="/"}} <!--uses partial, id = the active tab -->
+
+<!--a reusable partial can be included explicitly in many views -->
+
+<section class="ui raised segment">
+    <div class="ui grid">
+
+        <aside class="six wide column">
+            <img src="images/male gossip.jpg" class="ui medium image">
+        </aside>
+
+        <div class="six wide column">
+            <h4> Click on the User to view their Tweet Timeline</h4>
+            <h5> And to delete their tweets individually or in bulk</h5>
+        </div>
+        <div class="three wide column">
+            <button class="ui button olive"><a href="/userAdd">Add New User</a></button>
+
+            <div class="ui divider"></div>
+
+            <form class="ui form" action="/adminDeleteAllUsers" method="POST">
+                <button class="negative ui button">Delete all Users</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="ui divider"></div>
+
+    <!-- STACKABLE CARDS FOR EACH USER-->
+    <!--A group of cards can automatically stack rows to a single columns on mobile devices -->
+    <div class="ui four stackable cards">
+        {{#each users}}
+            <div class="card">
+                <!--refers to method in  -->
+                <div class="image"><a href="/findOtherUser/{{_id}}"><img src="/images/{{firstName}}.png"/></a></div>
+                <div class="content">
+                    <div class="header"><a class="header">{{firstName}} {{lastName}}</a></div>
+
+                    <div class="extra content">
+                        <div class="ui two buttons">
+                            <div class="ui basic green button"><a href="/userEdit/{{_id}}"><i class="edit icon"></i> Edit User</a></div>
+                            <div class="ui basic red button"><a href="/userDelete/{{_id}}"><i class="erase icon"></i> Remove User </a></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        {{/each}}
+    </div>
+
+
+
+</section>
+

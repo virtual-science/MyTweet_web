@@ -1,6 +1,7 @@
 'use strict';
 const User = require('../models/user');
-const Joi = require('joi');
+const admin = require('../models/admin'); // import the Model
+const Joi = require('joi'); // validation/error reporting partial in the handlers
 
 
 exports.main = {
@@ -11,6 +12,7 @@ exports.main = {
 
 };
 
+//--------------------  Signup  ----------------------------------------------//
 exports.signup = {
   auth: false,
   handler: function (request, reply) {
@@ -19,6 +21,7 @@ exports.signup = {
 
 };
 
+//---------------------  Login  ------------------------------------------------//
 exports.login = {
   auth: false,
   handler: function (request, reply) {
@@ -27,6 +30,8 @@ exports.login = {
 
 };
 
+
+//------------------------  Register  ----------------------------------------//
 exports.register = {
   auth: false,
 
@@ -64,12 +69,13 @@ exports.register = {
 
 };
 
+//---------------------------Authentication------------------------------------------------//
+
 exports.authenticate = {
 
   auth: false,
 
   validate: {
-
     payload: {
       email: Joi.string().email().required(),
       password: Joi.string().required(),
@@ -116,6 +122,8 @@ exports.authenticate = {
 },
 
 }
+
+//--------------------------Logout--------------------------------------------//
 exports.logout = {
   auth: false,
   handler: function (request, reply) {
@@ -124,6 +132,7 @@ exports.logout = {
   },
 };
 
+//--------------------------View-Settings-------------------------------------------------//
 exports.viewSettings = {
 
   handler: function (request, reply) {
@@ -137,6 +146,7 @@ exports.viewSettings = {
 
 };
 
+//---------------------------update-Settings----------------------------------------------//
 exports.updateSettings = {
 
   validate: {

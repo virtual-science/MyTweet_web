@@ -32,7 +32,7 @@
   "admins": {
     "_model": "Admin",
     "admin": {
-      "email": "admin@twitter.com",
+      "email": "admin@simpson.com",
       "password": "secret"
     }
   },

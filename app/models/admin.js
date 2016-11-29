@@ -1,6 +1,6 @@
 
 'use strict';
-
+// establish coonection to database mongoose
 const mongoose = require('mongoose');
 
 const adminSchema = mongoose.Schema({

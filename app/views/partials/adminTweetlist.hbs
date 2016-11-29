@@ -1,0 +1,46 @@
+<!--a reusable partial can be included explicitly in many views -->
+
+<section class="ui raised segment">
+
+    <article class="eight wide column">
+
+        <div class="ui feed">
+            {{#each tweets}}
+                <div class="event">
+                    <div class="label"><img src="/images/{{user.firstName}}.png"></div>
+                    <div class="content">
+                        <div class="summary">
+                            <!-- <a href="findOtherUser/{userId}" -->
+                            <a href="/findOtherUser/{{user._id}}"class="user">{{user.firstName}} {{user.lastName}}</a> </a> tweeted on
+                            <div class="date">{{formatDate date}} ></div>
+                        </div>
+
+                        <div class="tweet_content"> {{content}}</div>
+                        {{#exists picture.data}}
+                            <div class="tweet_content"><img src="/getPicture/{{_id}}" height="52" width="52" /></div>
+                        {{/exists}}
+
+                        <div class="meta">
+                            <a><i class="like icon"></i> {{?}} Likes</a>
+                            <a><i class="reply icon"></i></a>
+                            <a><i class="retweet icon"></i></a>
+                            <a><i class="share alternate square icon"></i></a>
+                            <!--the #each tweets loop brings the user down a level to each tweet, requiring a move up a level to
+                            implement the #if ../canDelete condition for either view.   -->
+                            {{#if ../canDelete}} <!-- ../ to go up a level to access canDelete -->
+                                <a href="/adminDeleteTweet/{{_id}}"><i class="erase icon"></i></a>
+                            {{/if}}
+                        </div>
+                    </div>
+                </div>
+            {{/each}}
+        </div>
+
+        <div>
+            <form class="ui form" action="/adminDeleteAll" method="POST">
+                <button class="negative ui button">Delete all Tweets</button>
+            </form>
+        </div>
+    </article>
+    </div>
+</section>

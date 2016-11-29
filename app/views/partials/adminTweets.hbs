@@ -1,0 +1,25 @@
+<!--a reusable partial can be included explicitly in many views -->
+<!--For Admin: users tab to add, update and delete users -->
+
+<!-- NOT USED IN END....-->
+<div class="ui grid ">
+    <div class="ui form eleven wide column">
+        <div class="ui stacked fluid form segment">
+            <form action="/adminDeleteTweet/{{user._id}}" method="POST">
+                <h3 class="ui header">Delete Tweet for User {{user.firstName}} {{user.lastName}}  </h3>
+                <div class="three fields">
+                    <div class="field">
+
+                        <button class="ui red button"><a href="/adminDeleteTweet/{{tweet._id}}">Delete Tweet</a></button>
+
+                        <button class="ui red button"><a href="/adminDeleteAll/{{user._id}}">Delete All</a></button>
+                    </div>
+                </div>
+            </form>
+            {{> formerror }}
+        </div>
+
+        <aside class="four wide column">
+        </aside>
+    </div>
+</div>

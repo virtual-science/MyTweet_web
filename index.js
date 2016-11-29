@@ -8,17 +8,18 @@ server.connection({ port: process.env.PORT || 4000 });
 server.bind({
 currentUser: {},
 users: {},
+admin: {},
 tweets: [],
 });
 
 require('./app/models/db');
 
 server.register([require('inert'), require('vision'), require('hapi-auth-cookie')], err => {
-
   if (err) {
     throw err;
   }
-
+  // handlebars engine
+  //Handlebars provides the power to  build semantic templates effectively
   server.views({
     engines: {
       hbs: require('handlebars'),
