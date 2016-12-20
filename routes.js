@@ -40,6 +40,19 @@ module.exports = [
   { method: 'POST', path: '/adminDeleteAll', config: Admin.adminDeleteAll },
   { method: 'POST', path: '/adminDeleteAllOtherUserTweets/{userId}', config: Admin.adminDeleteAllOtherUserTweets },
 
+  {
+    method: 'GET',
+    path: '/testlb/{param}',
+    config: {auth: false},
+    handler: function (request, reply) {
+      reply('Server: ' + os.hostname());
+      console.log('testing: ' + request.params.param);
+    }
+  },
+
+
+
+
 
   {
     method: 'GET',
